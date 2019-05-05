@@ -19,7 +19,7 @@ public class SetsController {
 	private CategoryController categoryController;
 	
 	@PostMapping("/sets")
-	public Map<String, Integer> verifySetsData(@RequestBody final String requestBody) {
+	public Map<String, Integer> verify(@RequestBody final String requestBody) {
 		final JSONParser jp = new JSONParser(requestBody);
 		final List<String> categoryNames = Arrays.asList(this.categoryController.list());
 		final Map<String, Integer> categoryCountMap = new LinkedHashMap<String, Integer>();
