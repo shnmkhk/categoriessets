@@ -1,4 +1,4 @@
-package com.neustar.demos.categoriessets;
+package com.neustar.categoriessets;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
