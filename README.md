@@ -20,22 +20,22 @@
        Fourth-tab  >> Verify the set to skip invalid categories and return the occurrances count (considering the latest added/ deleted categories in the above 2nd and 3rd API calls
        [POST] 	http://localhost:8080/sets
        
-       Eg Input:
-       
-       [
-    		{"PERSON":"Bob Jones"},
-    		{"PLACE":"Washington"},
-    		{"PERSON":"Mary"},
-    		{"COMPUTER":"Mac"},
-    		{"LAPTOP":"HP"},
-    		{"PERSON":"Bob Jones"},
-    		{"OTHER":"Tree"},
-    		{"ANIMAL":"Dog"},
-    		{"PLACE":"Texas"},
-    		{"FOOD":"Steak"},
-    		{"ANIMAL":"Cat"},
-    		{"LAPTOP":"Dell"}
-    	]
+		Eg Input:
+
+		[
+			{"PERSON":"Bob Jones"},
+			{"PLACE":"Washington"},
+			{"PERSON":"Mary"},
+			{"COMPUTER":"Mac"},
+			{"LAPTOP":"HP"},
+			{"PERSON":"Bob Jones"},
+			{"OTHER":"Tree"},
+			{"ANIMAL":"Dog"},
+			{"PLACE":"Texas"},
+			{"FOOD":"Steak"},
+			{"ANIMAL":"Cat"},
+			{"LAPTOP":"Dell"}
+		]
     	
     	Eg Output:
     	
