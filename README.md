@@ -8,14 +8,14 @@
 -   Make sure you open 4 Postman tabs open
 
        First-tab   >> Lists the available categories
-       [GET]    http://localhost:8080/clist/
+       [GET]    http://localhost:8080/categories
        
        Second-tab  >> Adds a new category to the listing
-       [POST]   http://localhost:8080/clist/add
+       [POST]   http://localhost:8080/categories
        with new category name sent in the body Eg. FOOD
        
        Third-tab   >> Removes the existing category from the listing
-       [DELETE] http://localhost:8080/clist/remove Eg. FOOD
+       [DELETE] http://localhost:8080/categories Eg. FOOD
        
        Fourth-tab  >> Verify the set to skip invalid categories and return the occurrances count (considering the latest added/ deleted categories in the above 2nd and 3rd API calls
        [POST] 	http://localhost:8080/sets
