@@ -8,17 +8,18 @@ import java.util.Map;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class SetsController {
+public class SetController {
 	
 	@Autowired
 	private CategoryController categoryController;
 	
-	@PostMapping("/sets")
+	@RequestMapping(method = RequestMethod.POST, value = "/sets")
 	public Map<String, Integer> verify(@RequestBody final String requestBody) {
 		final JSONParser jp = new JSONParser(requestBody);
 		final List<String> categoryNames = Arrays.asList(this.categoryController.list());

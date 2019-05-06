@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neustar.categoriessets.CategoriessetsApplication;
 import com.neustar.categoriessets.CategoryController;
-import com.neustar.categoriessets.SetsController;
+import com.neustar.categoriessets.SetController;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes=CategoriessetsApplication.class)
@@ -23,7 +23,7 @@ public class CategoriessetsApplicationTests {
 	private CategoryController categoryCtrl;
 	
 	@Autowired
-	private SetsController setsCtrl;
+	private SetController setsCtrl;
 	
 	@Test
 	public void addNewCategoryTest() {
