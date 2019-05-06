@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+</head>
+
+<body>
+<fieldset style="width: 30%">
+	<textarea id="inputarea" rows=10 columns=10 style="width: 95%; height: 30%"></textarea><br/><br/>
+	<input type="button" onclick="checkTheSet()" value="Check the set"/>
+    <h3>Output</h3><br/></br/>
+    <div id="outputArea"></div>
+</fieldset>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+    var baseEndpoint = "http://localhost:8080";
+	function checkTheSet() {
+		var textAreaInput = $('#inputarea').val();
+		$.ajax({
+			'url': baseEndpoint + '/sets',
+			'data' : textAreaInput,
+			'contentType' : 'application/json',
+			'type' : 'POST',
+			'success': function (data) {
+				$('#outputArea').html(JSON.stringify(data));
+			},
+			'error': function(data) {
+				$('#outputArea').html('Errored, please check the dev console');
+			
+			}
+		});	
+	}
+
+</script>
+</body>
+
+</html>

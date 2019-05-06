@@ -8,8 +8,9 @@ import java.util.Map;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,7 +19,7 @@ public class SetsController {
 	@Autowired
 	private CategoryController categoryController;
 	
-	@PostMapping("/sets")
+	@RequestMapping(value = "/sets", consumes = "application/json", produces = "application/json", method = RequestMethod.POST)
 	public Map<String, Integer> verify(@RequestBody final String requestBody) {
 		final JSONParser jp = new JSONParser(requestBody);
 		final List<String> categoryNames = Arrays.asList(this.categoryController.list());
@@ -35,8 +36,6 @@ public class SetsController {
 					}
 				}
 			}
-			
-			System.out.println(categoryCountMap.toString());
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
