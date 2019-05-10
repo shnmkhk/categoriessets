@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.neustar.categoriessets.util.AppConstants;
 
-@RestController
+@RestController()
 public class CategoryController {
 
 	private static Properties props = new Properties();
@@ -31,14 +31,14 @@ public class CategoryController {
 		refreshConfigProps();
 	}
 	
-	@RequestMapping(value = "/clist", produces = "application/json")
+	@RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/categories")
 	public String[] list() {
 		final String initCategories = props.getProperty(AppConstants.KEY_INITIAL_CATEGORIES).trim();
 		final String extCategories =  props.getProperty(AppConstants.KEY_EXTENDED_CATEGORIES).trim();
 		return (initCategories + "," + extCategories).split("[ ]*,[ ]*");
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/clist/add")
+	@RequestMapping(method = RequestMethod.POST, value = "/categories")
 	public String[] add(@RequestBody final String newCategory) {
 		final String initCategories = props.getProperty(AppConstants.KEY_INITIAL_CATEGORIES).trim();
 		String extCategories =  props.getProperty(AppConstants.KEY_EXTENDED_CATEGORIES).trim();
@@ -49,7 +49,7 @@ public class CategoryController {
 		return (initCategories + "," + extCategories).split("[ ]*,[ ]*");
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "/clist/remove")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/categories")
 	public String[] remove(@RequestBody final String deletingCategory) {
 		final String initCategories = props.getProperty(AppConstants.KEY_INITIAL_CATEGORIES).trim();
 		String extCategories =  props.getProperty(AppConstants.KEY_EXTENDED_CATEGORIES).trim();
@@ -63,7 +63,6 @@ public class CategoryController {
 	public void resyncProps() {
 		URL url = Thread.currentThread().getContextClassLoader().getResource("application.properties");
 		String filePath = url.toExternalForm().replaceAll("file:/", "").replaceAll("jar:/", "");
-		System.out.println("filepath: "+filePath);
 		try {
 			props.store(new PrintWriter(new FileWriter(filePath, false)), null);
 			refreshConfigProps();
